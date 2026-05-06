@@ -15,4 +15,4 @@ class Config:
         f"@{DB_HOST}:{DB_PORT}/{DB}"
     )
 
-    SQLALCHEMY_TRACK_MODIFICATION = False
+    SQLALCHEMY_TRACK_MODIFICATIONS = False

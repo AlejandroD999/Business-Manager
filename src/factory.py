@@ -8,4 +8,10 @@ def create_app():
 
     db.init_app(app)
 
+    with app.app_context():
+        db.reflect()
+
+        from .models.auth_mod import Users
+        
+    print(app.config["SQLALCHEMY_DATABASE_URI"])
     return app
