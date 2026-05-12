@@ -8,7 +8,7 @@ app = create_app()
 
 @app.route("/auth")
 def index():
-    auth_db.register_user("Ale", "4321")
+    auth_db.add_user("Ale", "4321")
     return f"{auth_db.fetch_user_id("Ale")}"
 
 if __name__ == "__main__":
