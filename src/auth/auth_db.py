@@ -1,10 +1,18 @@
 from ..extensions import db
 from ..models.auth_mod import User
 
+def register_user(username, password):
+    new_user = User(username=username, password=password)
+
+    try:
+        db.session.add(new_user)
+
+        db.session.commit()
+    except Exception:
+        db.session.rollback()
+
 def fetch_user_id(name):
-    user = db.session.query(User).filter_by(username=name).first()
+    user_data = db.session.query(User).filter_by(username=name).first()
 
-    return user.id if user else None
+    return user_data.id if user_data else None
 
-if __name__ == "__main__":
-    fetch_user_id("alejandro")
