@@ -11,6 +11,12 @@ def create_app():
     with app.app_context():
         db.reflect()
 
+        # Db models
         from .models.auth_mod import User
-        
+
+    # Blueprints
+    from .auth.routes import auth_bp
+
+    app.register_blueprint(auth_bp)
+
     return app
