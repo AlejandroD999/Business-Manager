@@ -1,4 +1,5 @@
 from .auth_db import add_user, user_exists
+from flask import Blueprint
 
 def register(username, password):
     # Manage user registration
