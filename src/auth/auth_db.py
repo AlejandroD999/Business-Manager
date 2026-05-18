@@ -11,11 +11,15 @@ def add_user(username, password):
     except Exception:
         db.session.rollback()
 
-def user_exists(username):
-    return db.session.query(User).filter_by(username=username).first() is not None
+def user_exists(name):
+    return db.session.query(User).filter_by(username=name).first() is not None
 
 def fetch_user_id(name):
     user_data = db.session.query(User).filter_by(username=name).first()
 
     return user_data.id if user_data else None
     
+def fetch_psw(username):
+    user = db.session.query(User).filter_by(username=username).first()
+
+    return user.password if user else None

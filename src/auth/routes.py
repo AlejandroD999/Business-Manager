@@ -1,6 +1,7 @@
-from .auth_db import add_user, user_exists
+from .auth_db import add_user, user_exists, fetch_psw
+from .utils import valid_username
 from flask import Blueprint, request, render_template, redirect, url_for
-import os
+import bcrypt
 
 auth_bp = Blueprint("auth", __name__, template_folder="templates")
 
@@ -11,9 +12,13 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        if not user_exists(username):
+
+        if valid_username(username) and not user_exists(username):
             # TODO Make username + password criteria
             # TODO Encrypt Password
+            
+            bcrypt.hashpw(password.encode(), bcrypt.gensalt())
+
             add_user(username, password)
 
 
@@ -27,7 +32,7 @@ def sign_in():
         usr = request.form.get("username")
         psw = request.form.get("password")
 
-        if user_exists(usr):
-            return "Exists"
+        if user_exists(usr) and bcrypt.checkpw(psw.encode(), fetch_psw(usr)):
+            return "Succcess"
         
     return render_template("sign_in.html")
