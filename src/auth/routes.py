@@ -10,16 +10,16 @@ def register():
     # Manage user registration
     if request.method == "POST":
         username = request.form.get("username")
-        password = request.form.get("password")
+        psw = request.form.get("password")
 
 
         if valid_username(username) and not user_exists(username):
             # TODO Make username + password criteria
             # TODO Encrypt Password
             
-            bcrypt.hashpw(password.encode(), bcrypt.gensalt())
+            hashed_psw = bcrypt.hashpw(psw.encode(), bcrypt.gensalt())
 
-            add_user(username, password)
+            add_user(username, hashed_psw)
 
 
             return redirect(url_for("auth.sign_in"))
@@ -32,7 +32,10 @@ def sign_in():
         usr = request.form.get("username")
         psw = request.form.get("password")
 
-        if user_exists(usr) and bcrypt.checkpw(psw.encode(), fetch_psw(usr)):
-            return "Succcess"
-        
+        # TODO Exception handling (salt error etc...)
+        valid_psw = bcrypt.checkpw(psw.encode(), fetch_psw(usr).encode())
+
+        if user_exists(usr) and valid_psw:
+            return f"Succcess"
+
     return render_template("sign_in.html")
