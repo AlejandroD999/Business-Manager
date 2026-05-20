@@ -12,6 +12,9 @@ def register():
         username = request.form.get("username")
         psw = request.form.get("password")
 
+        if not username or not psw:
+            # TODO Make alert for invalid input
+            return render_template("register.html")
 
         if valid_username(username) and not user_exists(username):
             # TODO Make username + password criteria
@@ -32,10 +35,14 @@ def sign_in():
         usr = request.form.get("username")
         psw = request.form.get("password")
 
+        if not user_exists(usr) or not psw:
+            # TODO Make invalid input alert
+            return render_template("sign_in.html")
+        
         # TODO Exception handling (salt error etc...)
         valid_psw = bcrypt.checkpw(psw.encode(), fetch_psw(usr).encode())
 
-        if user_exists(usr) and valid_psw:
+        if valid_psw:
             return f"Succcess"
 
     return render_template("sign_in.html")
