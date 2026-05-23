@@ -3,8 +3,9 @@
 <html>
     <head>
         <title>Home</title>
+        <link rel="stylesheet" href="{{url_for('home.static', filename='base-style.css')}}">
     </head>
     <body>
-        {% block body %} {% endblock %}
-    </body>
+        {% block extra_body %}{% endblock %}
+        </body>
 </html>
