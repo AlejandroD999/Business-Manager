@@ -2,3 +2,16 @@ body {
     background-color: #222629;
 
 }
+
+#home-nav-bar {
+    background-color: white;
+    list-style-type: none;
+}
+
+#home-nav-bar a {
+    padding: 8px;
+}
+
+#home-nav-bar li {
+    float: right;
+}
