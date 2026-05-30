@@ -5,6 +5,11 @@
         <title>Home</title>
         <link rel="stylesheet" href="{{url_for('home.static', filename='base-style.css')}}">
     </head>
+    <header>
+        <ul id="home-nav-bar">
+            <li><a href="{{url_for('home.dashboard')}}">Dashboard</a></li>
+        </ul>
+    </header>
     <body>
         {% block extra_body %}{% endblock %}
         </body>
