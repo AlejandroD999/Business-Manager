@@ -1,17 +1,33 @@
 body {
     background-color: #222629;
-
+    margin: 0;
 }
 
-#home-nav-bar {
-    background-color: white;
+
+.navbar ul {
     list-style-type: none;
+    background-color: #353739;
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+    overflow: hidden;
+    
+
 }
 
-#home-nav-bar a {
+.navbar a {
+    color: white;
+    text-decoration: none;
     padding: 8px;
 }
 
-#home-nav-bar li {
+.navbar a:hover {
+    background-color: #86C232;
+
+}
+
+.navbar li {
+    margin-top: 10px;
+    margin-bottom: 10px;
     float: right;
 }
