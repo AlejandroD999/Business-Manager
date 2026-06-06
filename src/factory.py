@@ -1,10 +1,14 @@
-from .extensions import db
 from .config import Config
+from .extensions import db
 from flask import Flask
+import secrets
+from datetime import timedelta
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
+    app.secret_key = secrets.token_hex(32)
+    app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=7)
 
     db.init_app(app)
 

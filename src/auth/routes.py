@@ -1,6 +1,6 @@
 from .auth_db import add_user, user_exists, fetch_psw
 from .utils import valid_username
-from flask import Blueprint, request, render_template, redirect, url_for
+from flask import Blueprint, request, session, render_template, redirect, url_for
 import bcrypt
 
 auth_bp = Blueprint("auth", __name__, template_folder="templates")
@@ -24,7 +24,6 @@ def register():
 
             add_user(username, hashed_psw)
 
-
             return redirect(url_for("auth.sign_in"))
 
     return render_template("register.html")
@@ -43,6 +42,9 @@ def sign_in():
         valid_psw = bcrypt.checkpw(psw.encode(), fetch_psw(usr).encode())
 
         if valid_psw:
-            return f"Succcess"
+            session.permanent = True
+            session["user"] = usr
+            return redirect(url_for("home.home"))
+
 
     return render_template("sign_in.html")
