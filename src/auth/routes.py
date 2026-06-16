@@ -13,12 +13,11 @@ def register():
         psw = request.form.get("password")
 
         if not username or not psw:
-            # TODO Make alert for invalid input
+            # TODO Make alert for invalid input (flask flash)
             return render_template("register.html")
 
         if valid_username(username) and not user_exists(username):
             # TODO Make username + password criteria
-            # TODO Encrypt Password
             
             hashed_psw = bcrypt.hashpw(psw.encode(), bcrypt.gensalt())
 
