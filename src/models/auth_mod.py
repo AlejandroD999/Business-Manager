@@ -9,3 +9,4 @@ class User(db.Model):
     username: Mapped[str] = mapped_column(unique=True)
     password: Mapped[str]
 
+# TODO Create class for products table
