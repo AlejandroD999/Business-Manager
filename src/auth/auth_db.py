@@ -22,4 +22,9 @@ def fetch_user_id(name):
 def fetch_psw(username):
     user = db.session.query(User).filter_by(username=username).first()
 
-    return user.password if user else None
+    if not user.password:
+        return
+
+    if isinstance(user.password, bytes): 
+        user.password.decode("utf-8") 
+    return user.password 
