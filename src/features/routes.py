@@ -6,9 +6,9 @@ features_bp = Blueprint("features", __name__, template_folder="templates")
 def inventory():
     return render_template("inventory.html")
 
-@features_bp.route("/products")
-def products():
-    return render_template("products.html")
+@features_bp.route("/expenses")
+def expenses():
+    return render_template("expenses.html")
 
 @features_bp.route("/sales")
 def sales():
