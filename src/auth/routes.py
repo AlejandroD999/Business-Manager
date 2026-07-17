@@ -43,7 +43,7 @@ def sign_in():
         if valid_psw:
             session.permanent = True
             session["user"] = usr
-            return redirect(url_for("home.home"))
+            return redirect(url_for("home.dashboard"))
 
 
     return render_template("sign_in.html")

@@ -5,14 +5,10 @@ home_bp = Blueprint("home", __name__,
                     static_url_path="/src/home/static")
 
 @home_bp.route("/")
-def home():
+def dashboard():
     username = session.get("user")
 
     if not username:
         return redirect(url_for("auth.sign_in"))
-    
-    return render_template("home.html")
 
-@home_bp.route("/dashboard")
-def dashboard():
     return render_template("dashboard.html")
