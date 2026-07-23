@@ -16,7 +16,6 @@ def user_exists(name):
 
 def fetch_user_id(name):
     user_data = db.session.query(User).filter_by(username=name).first()
-
     return user_data.id if user_data else None
     
 def fetch_psw(username):

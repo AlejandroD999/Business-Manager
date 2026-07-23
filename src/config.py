@@ -8,7 +8,7 @@ class Config:
     DB_PASSWORD = ""
     DB_HOST = "localhost"
     DB_PORT = "3306"
-    DB = "business_manager"
+    DB = "budget_app"
 
     SQLALCHEMY_DATABASE_URI = (
         f"mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}"
