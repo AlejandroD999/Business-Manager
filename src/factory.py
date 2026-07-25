@@ -13,10 +13,9 @@ def create_app():
     db.init_app(app)
 
     with app.app_context():
-        db.reflect()
-
         # Db models
         from .models.auth_mod import User
+        from .models.expenses_mod import Expenses
 
     # Blueprints
     from .auth.routes import auth_bp
@@ -28,3 +27,4 @@ def create_app():
     app.register_blueprint(features_bp)
 
     return app
+

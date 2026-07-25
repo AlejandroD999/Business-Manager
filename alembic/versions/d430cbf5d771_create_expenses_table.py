@@ -26,10 +26,9 @@ def upgrade() -> None:
             sa.Column("description", sa.String(255)), 
             sa.Column("amount", sa.FLOAT, nullable=False),
             sa.Column("date", sa.String(255), nullable=False),
-            # TODO Implement payment_method and category table foreign keys
-
             )
 
 
 def downgrade() -> None:
     op.drop_table("expenses")
+
