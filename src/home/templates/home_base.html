@@ -3,7 +3,10 @@
 <html>
     <head>
         <title>Home</title>
-        <link rel="stylesheet" href="{{url_for('home.static', filename='base-style.css')}}">
+        <link rel="stylesheet" href="{{url_for('home.static', filename='base_style.css')}}">
+
+        {% block header %}{% endblock %}
+
     </head>
     <header>
         <nav class="navbar">

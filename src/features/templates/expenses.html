@@ -1,5 +1,15 @@
 {% extends 'home_base.html' %}
 
+{% block header %}
+    <link rel="stylesheet" href="{{url_for('features.static', filename='expenses_style.css')}}"> 
+{% endblock %}
+
 {% block extra_body %}
-<h1>Expenses</h1>
+<table id="expenses_table">
+    <tr>
+        {% for table_header in table_headers %}
+            <th>{{ table_header }}</th>
+        {% endfor %}
+    </tr>
+</table>
 {% endblock %}
