@@ -11,5 +11,15 @@
             <th>{{ table_header }}</th>
         {% endfor %}
     </tr>
+    
+    {% for expense in expenses %}
+        <tr>
+            <td>{{ expense.description }}</td>
+            <td>{{ expense.amount }}</td>
+            <td>{{ expense.date}}</td>
+        </tr>
+    {% endfor %}
+
 </table>
+
 {% endblock %}

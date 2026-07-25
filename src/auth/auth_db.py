@@ -1,6 +1,8 @@
 from ..extensions import db
 from ..models.auth_mod import User
 
+# TODO Update db query syntax (legacy)
+
 def add_user(username, password):
     new_user = User(username=username, password=password)
 

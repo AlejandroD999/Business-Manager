@@ -1,4 +1,5 @@
-from flask import render_template, Blueprint
+from flask import render_template, session, Blueprint, redirect, url_for
+from .expenses_db import get_headers, pull_expenses
 import os
 
 CURR_DIR_PATH = os.path.dirname(__file__)
@@ -8,6 +9,16 @@ features_bp = Blueprint("features", __name__, template_folder="templates", stati
 
 @features_bp.route("/expenses")
 def expenses():
-    headers = ["id", "name", "random thing"]
-    return render_template("expenses.html", table_headers=headers)
+    username = session.get("User")
+    
+    if not username:
+        redirect(url_for("auth.sign_in"))
+    
+    expenses = pull_expenses()
+    headers = get_headers() 
+    
+    headers.remove("id")
+    headers.remove("user_id")
+        
+    return render_template("expenses.html", table_headers=headers, expenses=expenses)
 
