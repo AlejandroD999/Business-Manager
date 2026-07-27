@@ -22,3 +22,6 @@ def expenses():
         
     return render_template("expenses.html", table_headers=headers, expenses=expenses)
 
+@features_bp.route("/expenses/update-expense", methods=["GET", "POST"])
+def update_expense():
+    pass
