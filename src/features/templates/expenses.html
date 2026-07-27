@@ -13,10 +13,10 @@
     </tr>
     
     {% for expense in expenses %}
-        <tr>
-            <td>{{ expense.description }}</td>
-            <td>{{ expense.amount }}</td>
-            <td>{{ expense.date}}</td>
+        <tr class="expense_row">
+            <td contenteditable="true">{{ expense.description }}</td>
+            <td contenteditable="true">{{ expense.amount }}</td>
+            <td contenteditable="true">{{ expense.date}}</td>
         </tr>
     {% endfor %}
 
