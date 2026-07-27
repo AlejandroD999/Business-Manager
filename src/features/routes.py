@@ -16,11 +16,21 @@ def expenses():
     
     expenses = pull_expenses()
     headers = get_headers() 
+    table_headers = [] 
+    if not headers:
+        # TODO Handle error 
+        pass
     
-    headers.remove("id")
-    headers.remove("user_id")
-        
-    return render_template("expenses.html", table_headers=headers, expenses=expenses)
+    for header in headers:
+        if "id" not in header.lower():
+            table_headers.append(header)
+    
+    return render_template("expenses.html", table_headers=table_headers, expenses=expenses)
+
+@features_bp.route("/expenses/create-expense", methods=["GET", "POST"])
+def create_expense():
+    pass
+
 
 @features_bp.route("/expenses/update-expense", methods=["GET", "POST"])
 def update_expense():

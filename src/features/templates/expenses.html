@@ -5,10 +5,12 @@
 {% endblock %}
 
 {% block extra_body %}
+
 <table id="expenses_table">
+
     <tr>
         {% for table_header in table_headers %}
-            <th>{{ table_header }}</th>
+        <th>{{ table_header }}</th>
         {% endfor %}
     </tr>
     
