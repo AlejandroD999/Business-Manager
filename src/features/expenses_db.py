@@ -1,8 +1,15 @@
 from ..extensions import db
 from ..models.expenses_mod import Expenses
 
-def create_expense():
-    pass
+def insert_expense_data(user_id, description, amount, date):
+    statement = Expenses(user_id=user_id, description=description, amount=amount, date=date)
+    
+    try:
+        db.session.add(statement)
+        db.session.commit()
+
+    except Exception:
+        db.session.rollback()
 
 def update_expense():
     pass

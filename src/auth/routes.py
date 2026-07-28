@@ -1,4 +1,4 @@
-from .auth_db import add_user, user_exists, fetch_psw
+from .auth_db import add_user, user_exists, fetch_user_id, fetch_psw
 from .utils import valid_username
 from flask import Blueprint, request, session, render_template, redirect, url_for
 import bcrypt
@@ -43,6 +43,8 @@ def sign_in():
         if valid_psw:
             session.permanent = True
             session["user"] = usr
+            session["user_id"] = fetch_user_id(usr) 
+
             return redirect(url_for("home.dashboard"))
 
 
