@@ -9,6 +9,7 @@ def insert_expense(user_id, description, amount, date):
         db.session.commit()
 
     except Exception:
+        print("Error creating expense")
         db.session.rollback()
 
 def update_expense(expense_id, new_description=None, new_amount=None, new_date=None):
@@ -28,6 +29,7 @@ def update_expense(expense_id, new_description=None, new_amount=None, new_date=N
         db.session.commit()
 
     except Exception:
+        print("Error updating expense")
         db.session.rollback()
 
 def get_headers():
@@ -49,5 +51,15 @@ def pull_expenses(user_id):
 
     return db.session.scalars(db.select(Expenses).filter_by(user_id=user_id)).all()
 
-def delete_expense():
-    pass
+def delete_expense(expense_id):
+    expense = pull_expense(expense_id)
+
+
+    try:
+        db.session.delete(expense)
+        db.session.commit()
+
+    except Exception:
+        print("Error deleting expense")
+        db.session.rollback()
+

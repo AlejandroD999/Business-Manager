@@ -26,7 +26,7 @@ def expenses():
     for header in headers:
         if "id" not in header.lower():
             table_headers.append(header)
-
+    
     return render_template("expenses.html", table_headers=table_headers, expenses=expenses)
 
 @features_bp.route("/expenses/create-expense", methods=["GET", "POST"])
