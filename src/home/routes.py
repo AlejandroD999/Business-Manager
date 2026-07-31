@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, session, url_for, redirect
 
+# TODO Fix static path loading (home & features) 
 home_bp = Blueprint("home", __name__, 
                     template_folder="templates", static_folder="static",
                     static_url_path="/src/home/static")
