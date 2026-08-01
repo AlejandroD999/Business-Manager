@@ -5,7 +5,7 @@ class Config:
     SECRET_KEY = os.getenv("SECRET_KEY", "dev-only-insecure-key")
 
     DB_USERNAME = "root"
-    DB_PASSWORD = "po_ta_t0*"
+    DB_PASSWORD = ""
     DB_HOST = "localhost"
     DB_PORT = "3306"
     DB = "budget_app"

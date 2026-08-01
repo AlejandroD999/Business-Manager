@@ -1,7 +1,5 @@
-table {
-    background-color: red;
-}
 
-tabel td {
-    font-color: white;
+.expenses_table {
+    background-color: red;
+    color: black;
 }

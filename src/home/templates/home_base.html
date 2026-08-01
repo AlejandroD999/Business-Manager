@@ -4,10 +4,10 @@
     <head>
         <title>Home</title>
         <link rel="stylesheet" href="{{url_for('home.static', filename='base_style.css')}}">
-
         {% block header %}{% endblock %}
 
     </head>
+
     <header>
         <nav class="navbar">
             <ul>
@@ -16,7 +16,16 @@
             </ul>
         </nav>
     </header>
+
     <body>
-        {% block extra_body %}{% endblock %}
-        </body>
+        
+        <section id="expenses_section">
+            {% block expenses_content %}{% endblock %}
+        </section>
+        
+        <section id="dashboard_section">
+            {% block dashboard_content %}{% endblock %}
+        </section>
+
+    </body>
 </html>

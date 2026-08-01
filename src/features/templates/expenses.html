@@ -4,24 +4,30 @@
     <link rel="stylesheet" href="{{url_for('features.static', filename='expenses_style.css')}}"> 
 {% endblock %}
 
-{% block extra_body %}
+{% block expenses_content  %}
 
-<table id="expenses_table">
+<div id="expenses_portfolio"></div>
 
-    <tr>
-        {% for table_header in table_headers %}
-        <th>{{ table_header }}</th>
-        {% endfor %}
-    </tr>
-    
-    {% for expense in expenses %}
-        <tr class="expense_row">
-            <td contenteditable="true">{{ expense.description }}</td>
-            <td contenteditable="true">{{ expense.amount }}</td>
-            <td contenteditable="true">{{ expense.date}}</td>
+<div id="expense_history_container">
+    <!-- Make list of expenses (by date) -->
+    <table class="expenses_table">
+
+        <tr>
+            {% for table_header in table_headers %}
+                <th>{{ table_header }}</th>
+            {% endfor %}
         </tr>
-    {% endfor %}
+        
+        {% for expense in expenses %}
+            <tr class="expense_row">
+                <td contenteditable="true">{{ expense.description }}</td>
+                <td contenteditable="true">{{ expense.amount }}</td>
+                <td contenteditable="true">{{ expense.date}}</td>
+            </tr>
 
-</table>
+        {% endfor %}
+
+    </table>
+</div>
 
 {% endblock %}

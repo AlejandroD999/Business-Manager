@@ -32,3 +32,9 @@ body {
 .navbar li {
     float: right;
 }
+
+#expenses_section {
+    display: flex;
+    background-color: black;
+}
+
