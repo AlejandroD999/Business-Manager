@@ -6,9 +6,15 @@
 
 {% block expenses_content  %}
 
+<!-- Holds Charts and analysis of expenses -->
 <div id="expenses_portfolio"></div>
 
 <div id="expense_history_container">
+    
+    {% for table_date in dates %}
+    <button class="table_expense_button">{{ dates[table_date]}} - {{ table_date }}</button>
+    {% endfor %}
+
     <!-- Make list of expenses (by date) -->
     <table class="expenses_table">
 
