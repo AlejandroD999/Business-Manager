@@ -28,6 +28,10 @@ def expenses():
         if "id" not in header.lower():
             table_headers.append(header)
     
+    # TODO Load expenses corresponding to date button
+    # Possible create form to handle button
+    # Then, create  a table on click by filtering expenses corresponding to month & year
+
     return render_template("expenses.html",
                            table_headers=table_headers, expenses=expenses,
                            dates=dates
