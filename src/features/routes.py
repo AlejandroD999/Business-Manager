@@ -1,5 +1,5 @@
-from flask import render_template, session, Blueprint, redirect, url_for
-from .utils import parse_expense_date
+from flask import render_template, request, session, Blueprint, redirect, url_for
+from .utils import get_year_range 
 from .expenses_db import * 
 import os
 
@@ -16,8 +16,8 @@ def expenses():
         redirect(url_for("auth.sign_in"))
 
     expenses = pull_expenses(user_id)
-    dates = parse_expense_date(expenses)
     headers = get_headers() 
+    years = get_year_range()
     table_headers = [] 
 
     if not headers:
@@ -28,14 +28,16 @@ def expenses():
         if "id" not in header.lower():
             table_headers.append(header)
     
-    # TODO Load expenses corresponding to date button
-    # Possible create form to handle button
-    # Then, create  a table on click by filtering expenses corresponding to month & year
-
+    # Expenses will have filter header in form of form
+    
     return render_template("expenses.html",
                            table_headers=table_headers, expenses=expenses,
-                           dates=dates
+                           years=years
                            )
+@features_bp.route("/expenses/filter-expenses", methods=["GET", "POST"])
+def filter_expenses():
+    if request.method == "POST":
+        pass
 
 @features_bp.route("/expenses/create-expense", methods=["GET", "POST"])
 def create():

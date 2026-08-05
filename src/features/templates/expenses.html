@@ -11,11 +11,30 @@
 
 <div id="expense_history_container">
     
-    {% for table_date in dates %}
-    <button class="table_expense_button">{{ dates[table_date]}} - {{ table_date }}</button>
-    {% endfor %}
+    <form method="POST">
+        <select id="months_options" name="month">
+            <option value="" disabled selected hidden>Month</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+        </select>
 
-    <!-- Make list of expenses (by date) -->
+        <select id="years_options" name="years">
+            <option value="" disabled selected hidden>Year</option>
+            {% for y in years %}
+                <option value={{ y }}>{{ y }}</option>
+            {% endfor %}
+        </select>
+    </form>
     <table class="expenses_table">
 
         <tr>
@@ -25,6 +44,7 @@
         </tr>
         
         {% for expense in expenses %}
+
             <tr class="expense_row">
                 <td contenteditable="true">{{ expense.description }}</td>
                 <td contenteditable="true">{{ expense.amount }}</td>

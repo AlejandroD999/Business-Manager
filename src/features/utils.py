@@ -1,9 +1,11 @@
-import calendar
+from datetime import date
 
-def parse_expense_date(expenses):
-    
-    months = {}
-    for expense in expenses:
-        months[expense.date[6:]] = calendar.month_name[int(expense.date[:2])]
+def get_year_range():
+    today = date.today()
+    years = []
+   
+    for i in range(2000, int(today.year) + 1):
+        years.append(i)
 
-    return months
+    return years
+
