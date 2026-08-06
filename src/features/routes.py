@@ -34,10 +34,14 @@ def expenses():
                            table_headers=table_headers, expenses=expenses,
                            years=years
                            )
-@features_bp.route("/expenses/filter-expenses", methods=["GET", "POST"])
+@features_bp.route("/filter-expenses", methods=["POST"])
 def filter_expenses():
-    if request.method == "POST":
-        pass
+    month = request.form.get("month")
+    year = request.form.get("year")
+
+    print(month, year)
+
+    return redirect(url_for("features.expenses"))
 
 @features_bp.route("/expenses/create-expense", methods=["GET", "POST"])
 def create():

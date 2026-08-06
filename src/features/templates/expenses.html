@@ -11,7 +11,8 @@
 
 <div id="expense_history_container">
     
-    <form method="POST">
+    <form action="/filter-expenses" method="POST">
+
         <select id="months_options" name="month">
             <option value="" disabled selected hidden>Month</option>
             <option value="January">January</option>
@@ -28,13 +29,16 @@
             <option value="December">December</option>
         </select>
 
-        <select id="years_options" name="years">
+        <select id="year_options" name="year">
             <option value="" disabled selected hidden>Year</option>
             {% for y in years %}
                 <option value={{ y }}>{{ y }}</option>
             {% endfor %}
         </select>
+
+        <input type="submit" value="Apply">
     </form>
+
     <table class="expenses_table">
 
         <tr>
