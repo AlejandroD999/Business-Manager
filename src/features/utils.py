@@ -9,7 +9,9 @@ def get_year_range():
 
     return years
 
+
 def string_to_date(date: str, date_format="%m/%d/%Y"):
+
     datetime_obj = datetime.strptime(date, date_format)
     date_obj = datetime_obj.date()
 
