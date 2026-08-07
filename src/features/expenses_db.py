@@ -1,5 +1,6 @@
 from ..extensions import db
 from ..models.expenses_mod import Expenses
+from datetime import date
 
 def insert_expense(user_id, description, amount, date):
     statement = Expenses(user_id=user_id, description=description, amount=amount, date=date)

@@ -17,15 +17,15 @@ def expenses():
         redirect(url_for("auth.sign_in"))
 
     expenses = pull_expenses(user_id) 
-    print("B4", expenses)
 
     if request.method == "POST":
         filter_month = request.form.get("month")
         filter_year = request.form.get("year") 
-        filter_date = string_to_date(f"{filter_month}/{filter_year}", date_format="%m/%Y") 
-        print(59)
+        # TODO Error handling: missing month or year
+        filter_date = string_to_date(f"{filter_year}/{filter_month}", date_format="%Y/%m") 
+
         expenses = pull_expenses(user_id, filter_date)
-    print("After", expenses)
+
     headers = get_headers() 
     years = get_year_range()
     table_headers = [] 
