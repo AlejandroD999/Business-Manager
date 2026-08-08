@@ -46,25 +46,20 @@ def pull_expense(expense_id):
     return expense
     
 
-def pull_expenses(user_id, date_obj=None):
+def pull_expenses(user_id, date_range=None):
     # Fetch and return expenses in rows [Expenses>1, Expenses>2, ...]
+    # Optional: filter date -> uses start_date and end_date
+
+    if not date_range or len(date_range) < 2:
+        return db.session.scalars(db.select(Expenses).filter_by(user_id=user_id)).all()
     
-    if date_obj:
-        start_date = date(date_obj.year, date_obj.month, 1)
+    expense = db.session.scalars(db.select(Expenses).where(
+        Expenses.user_id==user_id,
+        Expenses.date >= date_range[0], 
+        Expenses.date < date_range[1])).all()
 
-        if start_date.month == 12:
-            end_date = date(date_obj.year + 1, 1, 1)
-        else:
-            end_date = date(date_obj.year, date_obj.month + 1, 1)
-
-        expense = db.session.scalars(db.select(Expenses).where(
-            Expenses.user_id==user_id,
-            Expenses.date >= start_date,
-            Expenses.date < end_date)).all()
-
-        return expense
+    return expense
     
-    return db.session.scalars(db.select(Expenses).filter_by(user_id=user_id)).all()
 
 def delete_expense(expense_id):
     expense = pull_expense(expense_id)

@@ -19,13 +19,18 @@ def expenses():
     expenses = pull_expenses(user_id) 
 
     if request.method == "POST":
-        filter_month = request.form.get("month")
-        filter_year = request.form.get("year") 
-        # TODO Error handling: missing month or year
-        filter_date = string_to_date(f"{filter_year}/{filter_month}", date_format="%Y/%m") 
+        start_date= request.form.get("start_date")
+        end_date= request.form.get("end_date") 
+        
+        if not start_date or not end_date:
+            # TODO Prompt error 
+            print("Start and end date required")
+            return
+        
+        date_range = [string_to_date(start_date), string_to_date(end_date)]
 
-        expenses = pull_expenses(user_id, filter_date)
-
+        expenses = pull_expenses(user_id, date_range)
+        
     headers = get_headers() 
     years = get_year_range()
     table_headers = [] 

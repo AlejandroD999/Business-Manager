@@ -18,23 +18,10 @@ if not month or year or day:
 date with values
 
 '''
-def string_to_date(year=None, month=None, day=None):  
-    # TODO improve filter
-        
-    if year and month and day:
-        year = int(year)
-        month = int(month)
-        day = int(day)
-
-        return date(year, month, day) 
-
-    if year and month:
-        year = int(year)
-        month = int(month)
-
-        return date(year, month, 1)
+def string_to_date(date_str, date_format="%Y-%m-%d"):  
     
-    if year:
-        year = int(year)
-        return date(year, 1, 1)
-     
+    datetime_obj = datetime.strptime(date_str, date_format) 
+    date_obj = datetime_obj.date() 
+
+    return date_obj
+
