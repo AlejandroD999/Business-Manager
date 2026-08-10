@@ -18,6 +18,12 @@
         <input type="submit" value="Apply">
     </form>
 
+    <script>
+        function handle_expense_delete_button() {
+            alert("Button Pressed");
+        };
+    </script>
+
     <table class="expenses_table">
 
         <tr>
@@ -32,6 +38,9 @@
                 <td contenteditable="true">{{ expense.description }}</td>
                 <td contenteditable="true">{{ expense.amount }}</td>
                 <td contenteditable="true">{{ expense.date}}</td>
+                <td>
+                    <button class="expense_delete_button" onclick="handle_expense_delete_button()">delete</button>
+                </td>
             </tr>
 
         {% endfor %}

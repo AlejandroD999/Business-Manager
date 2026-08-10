@@ -3,6 +3,8 @@ from .utils import get_year_range, string_to_date
 from .expenses_db import * 
 import os
 
+# TODO Make expense table date the same format as input
+
 CURR_DIR_PATH = os.path.dirname(__file__)
 
 features_bp = Blueprint("features", __name__, template_folder="templates", static_folder="static", static_url_path="/src/features/static")
@@ -27,9 +29,7 @@ def expenses():
             print("Start and end date required")
             return
         
-        date_range = [string_to_date(start_date), string_to_date(end_date)]
-
-        expenses = pull_expenses(user_id, date_range)
+        expenses = pull_expenses(user_id, start_date=string_to_date(start_date), end_date=string_to_date(end_date))
         
     headers = get_headers() 
     years = get_year_range()
