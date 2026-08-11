@@ -1,5 +1,14 @@
 
+#expenses_container {
+    background-color: blue;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+    width: 95vw;
+}
+
 .expenses_table {
     background-color: red;
     color: black;
+    width: 100%;
 }
+
