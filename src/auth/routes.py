@@ -3,7 +3,10 @@ from .utils import valid_username
 from flask import Blueprint, request, session, render_template, redirect, url_for
 import bcrypt
 
-auth_bp = Blueprint("auth", __name__, template_folder="templates")
+auth_bp = Blueprint("auth", __name__, template_folder="templates", static_folder="static", static_url_path="/src/auth/static")
+
+# TODO Don't allow duplicate user session
+#   - if signed_in -> to home page
 
 @auth_bp.route("/register", methods=["GET", "POST"])
 def register():

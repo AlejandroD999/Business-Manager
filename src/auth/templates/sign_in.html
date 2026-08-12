@@ -3,3 +3,11 @@
 {% block head %}
 <title>Sign-In</title>
 {% endblock %}
+
+{% block auth_forms %}
+    <form class="auth_form" method="POST">
+        <input type="text" placeholder="Username" name="username">
+        <input type="password" placeholder="Password" name="password">
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

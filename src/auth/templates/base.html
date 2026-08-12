@@ -3,13 +3,10 @@
 <html>
     <head>
         {% block head %}{% endblock %}
+        <link rel="stylesheet" href="{{url_for('auth.static', filename='auth_style.css')}}">
     </head>
-    <body style="background-color: gray">
-        <form method="POST">
-            <input type="text" placeholder="Username" name="username">
-            <input type="password" placeholder="Password" name="password">
-            <button type="submit">Submit</button>
-            </form>
 
+    <body>
+        {% block auth_forms %}{% endblock %}
     </body>
 </html>
