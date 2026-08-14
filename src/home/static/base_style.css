@@ -36,5 +36,6 @@ body {
 #expenses_section {
     display: flex;
     background-color: black;
+    flex-direction: column;
 }
 

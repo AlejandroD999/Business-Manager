@@ -9,20 +9,23 @@
 <!-- Holds Charts and analysis of expenses -->
 <div id="expenses_portfolio"></div>
 
-<div id="expenses_container">
-    
+<div class="filter_form_div">
     <form method="POST">
         <input type="date" name="start_date" required autofocus>
         <input type="date" name="end_date" required>
 
         <input type="submit" value="Apply">
     </form>
+</div>
 
+<div id="expenses_container">
+    
     <script>
         function handle_expense_delete_button() {
             alert("Delete");
         };
     </script>
+
     <table class="expenses_table">
 
         <tr>
