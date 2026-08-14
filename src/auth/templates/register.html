@@ -7,10 +7,10 @@
 {% block auth_forms %}
     <form class="auth_form" method="POST">
         <div class="input_section">
-            <input type="text" placeholder="Username" name="username">
-            <input type="password" placeholder="Password" name="password">
+            <input type="text" placeholder="Username" name="username" required>
+            <input type="password" placeholder="Password" name="password" required>
         </div>
-
+        
         <div class="actions_section">
             <a href="{{ url_for('auth.sign_in') }}">Already have an account?</a>
             <button type="submit">Submit</button>
