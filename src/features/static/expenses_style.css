@@ -6,17 +6,21 @@
 #expenses_container {
     background-color: blue;
     align-self: center;
-    max-width: 750px;
+    width: 800px;
 }
 
 
 .expenses_table {
     background-color: red;
+    font-size: 1.15rem;
     color: black;
     width: 100%;
 
 }
 
+
 .expenses_table td {
     overflow-wrap: break-word;
+    min-width: 33%;
+    max-width: 60%;
 }
