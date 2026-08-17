@@ -1,12 +1,25 @@
 
-.filter_form {
-    display: flex;
-
-    margin-left: 1%;
-    gap: 5px;
-    background-color: green;
+.filter_div {
+    margin-top: 5px;
+    width: 40%;
 }
 
+.filter_form {
+    display: flex;
+    margin-left: 5%;
+    gap: 7px;
+}
+
+.filter_form input[type="date"] {
+    border-radius: 4px;
+    border: none;
+    width: auto;
+    height: 5vh;
+}
+
+.filter_form input[type="submit"] {
+    width: 15%;
+}
 
 #expenses_container {
     align-self: center;
@@ -42,4 +55,16 @@
     border: 3px solid #6B6E70;
     outline: none;
     outline-offset: 1px;
+}
+
+.expense_delete_button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.expense_delete_button:hover {
+    background-color: #C23B3B;
+
+
 }

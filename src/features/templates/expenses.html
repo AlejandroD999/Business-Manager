@@ -9,13 +9,14 @@
 <!-- Holds Charts and analysis of expenses -->
 <div id="expenses_portfolio"></div>
 
-<form class="filter_form" method="POST">
-    <input type="date" name="start_date" required>
-    <input type="date" name="end_date" required>
+<div class="filter_div">
+    <form class="filter_form" method="POST">
+        <input type="date" name="start_date" required>
+        <input type="date" name="end_date" required>
 
-    <input type="submit" value="Filter">
-</form>
-
+        <input type="submit" value="Filter">
+    </form>
+</div>
 <div id="expenses_container">
     
     <script>
@@ -39,7 +40,9 @@
                 <td contenteditable="true" spellcheck="false">{{ expense.amount }}</td>
                 <td contenteditable="true" spellcheck="false">{{ expense.date}}</td>
                 <td>
-                    <button class="expense_delete_button" onclick="handle_expense_delete_button()">delete</button>
+                    <button class="expense_delete_button" onclick="handle_expense_delete_button()">
+                        <img src="{{ url_for('features.static', filename='delete_icon.png') }}" alt="Delete">
+                    </button>
                 </td>
             </tr>
 
