@@ -1,26 +1,45 @@
 
-.filter_form_div {
+.filter_form {
+    display: flex;
+
+    margin-left: 1%;
+    gap: 5px;
     background-color: green;
 }
 
+
 #expenses_container {
-    background-color: blue;
     align-self: center;
     width: 800px;
 }
 
 
 .expenses_table {
-    background-color: red;
+    margin-top: 15px;
     font-size: 1.15rem;
-    color: black;
     width: 100%;
 
+    padding: 0px 10px 10px 10px;
+    border: 1px solid #61892F;
+    border-radius: 2px;
+
+    background-color: #474B4F;
+    color:  #a8acaf;
 }
 
+.expenses_table th {
+    color: #86C232;
+}
 
 .expenses_table td {
     overflow-wrap: break-word;
     min-width: 33%;
     max-width: 60%;
+}
+
+.expenses_table td:focus {
+    color: white;
+    border: 3px solid #6B6E70;
+    outline: none;
+    outline-offset: 1px;
 }

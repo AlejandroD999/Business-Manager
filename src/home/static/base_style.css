@@ -6,13 +6,12 @@ body {
 
 .navbar ul {
     list-style-type: none;
-    background-color: #353739;
+    background-color: #474B4F;
     padding: 0px;
     margin: 0px;
     font-size: 20px;
     overflow: hidden;
     
-
 }
 
 .navbar a {
@@ -35,7 +34,6 @@ body {
 
 #expenses_section {
     display: flex;
-    background-color: black;
     flex-direction: column;
 }
 
