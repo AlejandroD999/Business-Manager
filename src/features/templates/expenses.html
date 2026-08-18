@@ -9,7 +9,16 @@
 <!-- Holds Charts and analysis of expenses -->
 <div id="expenses_portfolio"></div>
 
-<div class="filter_div">
+<div class="expense_actions_div">
+
+    <form action="{{url_for('features.create')}}" class="create_expense_form" method="POST">
+        <input type="hidden" name="create" value="create"> 
+        <button class="create_expense_button" type="submit">
+            <img src="{{ url_for('features.static', filename='add_icon.png') }}" alt="create">
+        </button>
+
+    </form>
+
     <form class="filter_form" method="POST">
         <input type="date" name="start_date" required>
         <input type="date" name="end_date" required>

@@ -21,14 +21,14 @@ def expenses():
         redirect(url_for("auth.sign_in"))
 
     expenses = pull_expenses(user_id) 
-
+    
+    # Filter Expenses
     if request.method == "POST":
         start_date= request.form.get("start_date")
         end_date= request.form.get("end_date") 
         
         if not start_date or not end_date:
-            # TODO Prompt error 
-            print("Start and end date required")
+            # TODO Prompt error (maybe optional due to other actions) 
             return
         
         expenses = pull_expenses(user_id, start_date=string_to_date(start_date), end_date=string_to_date(end_date))
@@ -57,13 +57,20 @@ def filter_expenses():
 
     return redirect(url_for("features.expenses"))
 
-@features_bp.route("/expenses/create-expense", methods=["GET", "POST"])
+@features_bp.route("/expenses/create-expense", methods=["POST"])
 def create():
     username = session.get("user")
+    user_id = session.get("user_id")
 
     if not username:
         redirect(url_for("auth.sign_in"))
-    pass
+
+    action = request.form.get("create")
+    
+    if action == "create":
+        insert_expense(user_id, "create button test", 0, "2026-08-18")
+     
+    return redirect(url_for('features.expenses'))
 
 @features_bp.route("/expenses/update-expense", methods=["GET", "POST"])
 def update():

@@ -1,12 +1,27 @@
 
-.filter_div {
+.expense_actions_div {
+    display: flex;
+    margin-left: 10px;
     margin-top: 5px;
-    width: 40%;
+    gap: 5px;
+}
+
+.create_expense_button {
+    background-color: transparent;
+    height: 100%;
+    
+    border-radius: 2px; 
+    border: 1px solid #61892F;
+}
+
+.create_expense_button:hover {
+    background-color: #86C232;
+    margin-top: 2px;
+    border-color: #222629;
 }
 
 .filter_form {
     display: flex;
-    margin-left: 5%;
     gap: 7px;
 }
 
@@ -18,7 +33,7 @@
 }
 
 .filter_form input[type="submit"] {
-    width: 15%;
+    height: 5vh;
 }
 
 #expenses_container {
