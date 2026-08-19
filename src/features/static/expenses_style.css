@@ -20,6 +20,27 @@
     border-color: #222629;
 }
 
+.create_expense_div {
+    display: block;
+    position: absolute;
+    background-color: blue;
+    
+    margin-top: 10px;
+    align-self: center;
+    width: 40%;
+    padding: 5px;
+}
+
+.create_expense_div form {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 5px;
+    background-color: red;
+}
+
+
+
 .filter_form {
     display: flex;
     gap: 7px;

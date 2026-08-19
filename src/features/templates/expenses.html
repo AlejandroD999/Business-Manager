@@ -11,13 +11,9 @@
 
 <div class="expense_actions_div">
 
-    <form action="{{url_for('features.create')}}" class="create_expense_form" method="POST">
-        <input type="hidden" name="create" value="create"> 
-        <button class="create_expense_button" type="submit">
-            <img src="{{ url_for('features.static', filename='add_icon.png') }}" alt="create">
-        </button>
-
-    </form>
+    <button class="create_expense_button" type="submit" onclick="button_clicked()">
+        <img src="{{ url_for('features.static', filename='add_icon.png') }}" alt="create">
+    </button>
 
     <form class="filter_form" method="POST">
         <input type="date" name="start_date" required>
@@ -26,13 +22,18 @@
         <input type="submit" value="Filter">
     </form>
 </div>
+
+<div class="create_expense_div">
+    <form action="{{ url_for('features.create') }}" method="POST">
+        <input type="text" name="description" placeholder="description">
+
+        <input id="amount" type="number" name="amount" min="0.01" step="0.01" placeholder="Amount ($)">
+        <input type="date" name="date" placeholder="date">
+        
+        <input type="submit" value="Create">
+    </form>
+</div>
 <div id="expenses_container">
-    
-    <script>
-        function handle_expense_delete_button() {
-            alert("Delete");
-        };
-    </script>
 
     <table class="expenses_table">
 
@@ -60,4 +61,11 @@
     </table>
 </div>
 
+<script>
+    function button_clicked() {
+        alert("Button Clicked");
+    };
+</script>
+
 {% endblock %}
+

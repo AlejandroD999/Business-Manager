@@ -59,7 +59,6 @@ def filter_expenses():
 
 @features_bp.route("/expenses/create-expense", methods=["POST"])
 def create():
-    # TODO Create button loads form for expense data, submit does features (remove current action)
     username = session.get("user")
     user_id = session.get("user_id")
 
