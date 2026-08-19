@@ -27,8 +27,9 @@
     align-self: center;
     
     margin-top: 10px;
-    width: 30%;
-    padding: 5px;
+    width: 25%;
+    height: 35vh;
+    padding: 10px;
     
     justify-content: center;
 }
@@ -37,13 +38,29 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 5px;
+    gap: 8px;
 
-    justify-content: center;
+    align-items: center;
     background-color: red;
 }
 
+.create_form > input { 
+    width: 90%;
+    height: 20%;
+}
 
+.create_actions {
+    display: flex;
+    width: 100%;
+    height: 20%; 
+    justify-content: center;
+    gap: 15px;
+    background-color: green;
+}
+
+.create_actions * {
+    width: 40%;
+}
 
 .filter_form {
     display: flex;
