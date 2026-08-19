@@ -64,11 +64,16 @@ def create():
 
     if not username:
         redirect(url_for("auth.sign_in"))
-
-    action = request.form.get("create")
     
-    if action == "create":
-        insert_expense(user_id, "create button test", 0, "2026-08-18")
+    description = request.form.get("description")
+    amount = request.form.get("amount")
+    date = request.form.get("date")
+    
+    if not description or not amount or not date:
+        # TODO Error pop up
+        return redirect(url_for('features.expenses'))
+
+    insert_expense(user_id, description, amount, date) 
      
     return redirect(url_for('features.expenses'))
 

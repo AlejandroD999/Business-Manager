@@ -20,22 +20,26 @@
     border-color: #222629;
 }
 
-.create_expense_div {
-    display: block;
+.create_div {
+    display: flex;
     position: absolute;
     background-color: blue;
+    align-self: center;
     
     margin-top: 10px;
-    align-self: center;
-    width: 40%;
+    width: 30%;
     padding: 5px;
+    
+    justify-content: center;
 }
 
-.create_expense_div form {
+.create_form {
     display: flex;
-    position: relative;
     flex-direction: column;
+    width: 100%;
     gap: 5px;
+
+    justify-content: center;
     background-color: red;
 }
 
