@@ -36,12 +36,15 @@ def update_expense(expense_id, new_description=None, new_amount=None, new_date=N
 def get_headers():
     return [column.name.capitalize() for column in Expenses.__table__.columns]
 
-def pull_expense(expense_id):
+def pull_expense(expense_id, user_id):
     if not expense_id:
         # TODO Handle Error
         return
 
-    expense = db.session.execute(db.select(Expenses).filter_by(id=expense_id)).scalar_one()
+    expense = db.session.execute(db.select(Expenses).filter_by(
+        id=expense_id, 
+        user_id=user_id
+        )).scalar_one()
 
     return expense
     
@@ -61,9 +64,8 @@ def pull_expenses(user_id, start_date=None, end_date=None):
     return expense
     
 
-def delete_expense(expense_id):
-    expense = pull_expense(expense_id)
-
+def delete_expense(expense_id, user_id):
+    expense = pull_expense(expense_id, user_id)
 
     try:
         db.session.delete(expense)

@@ -21,7 +21,7 @@
 }
 
 .create_div {
-    display: flex;
+    display: none;
     position: absolute;
     background-color: blue;
     align-self: center;

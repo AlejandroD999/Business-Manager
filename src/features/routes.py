@@ -77,6 +77,20 @@ def create():
      
     return redirect(url_for('features.expenses'))
 
+@features_bp.route('/expenses/delete-expense', methods=["POST"])
+def delete():
+    user_id = session.get("user_id")
+
+    expense_id = request.form.get("expense_id")
+    
+    if not expense_id or not user_id:
+        # TODO Error pop-up
+        return redirect(url_for('features.expenses'))
+
+    delete_expense(expense_id, user_id)
+
+    return redirect(url_for('features.expenses'))
+
 @features_bp.route("/expenses/update-expense", methods=["GET", "POST"])
 def update():
     pass
