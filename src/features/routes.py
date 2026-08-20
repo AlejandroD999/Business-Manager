@@ -14,6 +14,8 @@ features_bp = Blueprint("features", __name__,
 
 @features_bp.route("/expenses", methods=["GET", "POST"])
 def expenses():
+    # TODO Add filter reset button
+
     username = session.get("user")
     user_id = session.get("user_id")
     
@@ -49,13 +51,6 @@ def expenses():
                            table_headers=table_headers,
                            expenses=expenses,
                            years=years)
-
-@features_bp.route("/filter-expenses", methods=["POST"])
-def filter_expenses():
-    month = request.form.get("month")
-    year = request.form.get("year")
-
-    return redirect(url_for("features.expenses"))
 
 @features_bp.route("/expenses/create-expense", methods=["POST"])
 def create():
