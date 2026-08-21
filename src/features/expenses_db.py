@@ -40,11 +40,11 @@ def pull_expense(expense_id, user_id):
     if not expense_id:
         # TODO Handle Error
         return
-
+    
     expense = db.session.execute(db.select(Expenses).filter_by(
         id=expense_id, 
         user_id=user_id
-        )).scalar_one()
+        )).scalar_one_or_none()
 
     return expense
     
@@ -66,7 +66,7 @@ def pull_expenses(user_id, start_date=None, end_date=None):
 
 def delete_expense(expense_id, user_id):
     expense = pull_expense(expense_id, user_id)
-
+    
     try:
         db.session.delete(expense)
         db.session.commit()
