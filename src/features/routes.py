@@ -19,8 +19,8 @@ def expenses():
     username = session.get("user")
     user_id = session.get("user_id")
     
-    if not username:
-        redirect(url_for("auth.sign_in"))
+    if not username or not user_id:
+        return redirect(url_for("auth.sign_in"))
 
     expenses = pull_expenses(user_id) 
     
@@ -57,8 +57,8 @@ def create():
     username = session.get("user")
     user_id = session.get("user_id")
 
-    if not username:
-        redirect(url_for("auth.sign_in"))
+    if not username or not user_id:
+        return redirect(url_for("auth.sign_in"))
     
     description = request.form.get("description")
     amount = request.form.get("amount")
@@ -81,7 +81,7 @@ def delete():
     if not expense_id or not user_id:
         # TODO Error pop-up
         return redirect(url_for('features.expenses'))
-
+     
     delete_expense(expense_id, user_id)
 
     return redirect(url_for('features.expenses'))
