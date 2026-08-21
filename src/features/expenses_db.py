@@ -67,6 +67,11 @@ def pull_expenses(user_id, start_date=None, end_date=None):
 def delete_expense(expense_id, user_id):
     expense = pull_expense(expense_id, user_id)
     
+    if not expense:
+        # TODO Error pop up
+        print("Error deleting expense")
+        return 
+
     try:
         db.session.delete(expense)
         db.session.commit()
