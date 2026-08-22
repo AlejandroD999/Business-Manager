@@ -52,10 +52,13 @@ def pull_expense(expense_id, user_id):
 def pull_expenses(user_id, start_date=None, end_date=None):
     # Fetch and return expenses in rows [Expenses>1, Expenses>2, ...]
     # Optional: filter date -> uses start_date and end_date
+    
+    # TODO Clean and strengthen
+    # Handle types && narrow method 
 
     if not start_date or not end_date: 
         return db.session.scalars(db.select(Expenses).filter_by(user_id=user_id)).all()
-    
+     
     expense = db.session.scalars(db.select(Expenses).where(
         Expenses.user_id==user_id,
         Expenses.date >= start_date, 
